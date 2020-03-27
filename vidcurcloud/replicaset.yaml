@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: webserver
+  labels:
+    app: miApp
+    env: staging
+spec:
+  # modify replicas according to your case
+  replicas: 1
+  selector:
+    matchLabels:
+      app: miApp
+      env: staging
+  template:
+    metadata:
+      labels:
+        app: miApp
+        env: staging
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
